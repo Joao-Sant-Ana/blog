@@ -1,10 +1,11 @@
 //Tratamento para os Posts do Json
 export interface Post {
     id: number;
-    tittle: string;
+    title: string;
     body: string;
     created_at: string;
     image_url: string;
+    image_alt: string;
 }
 
 //Seleciona todos os posts dentro do json
