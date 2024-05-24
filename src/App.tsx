@@ -1,7 +1,10 @@
+import { ThemeProvider } from "./components/theme-provider";
+import Router from "./router/Router";
+
 export default function App() {
   return (
-    <>
-      <h1>Olá mundo</h1>
-    </>
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <Router />
+    </ThemeProvider>
   )
 }

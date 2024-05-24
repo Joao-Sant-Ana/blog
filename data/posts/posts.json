@@ -1,0 +1,11 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Quem sou eu?",
+            "body": "Olá meu nome é João Marcos e vou falar um poquinho sobre mim, no momento deste post (24/05/2024) tenho 17 anos e estou trilhando meu caminho como desenvolvedor web, no momento possuo experiencia com o HTML, CSS e JS. No momento também estou apredendo React e tenho um pouco de experiencia com PHP, MySQL, Scss, Tailwind. Possuo vontade ainda de aprender Next.js, React Native e outras linguagens de programação como C, C++, C# dentre outras. Programo desde os meus 14 anos e desde criança sempre tive curiosidade sobre a tecnologia e como ela funciona, e cá estou eu evoluindo neste caminho.",
+            "created_at": "24/05/2024",
+            "image_url": "https://avatars.githubusercontent.com/u/80593996?v=4"
+        }
+    ]
+}
