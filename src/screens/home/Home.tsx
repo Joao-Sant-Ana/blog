@@ -3,24 +3,31 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { PostData } from '@/types';
 
 export default function Home ({ posts }: PostData) {
+    posts = posts.map((item) => {
+        const lastSpace = item.body.lastIndexOf(' ', 500);
+        const tinyText = item.body.substring(0, lastSpace) + "...";
+
+        return {...item, tinyText: tinyText}
+    });
 
     return (
         <>
             <Header />
-            <main className="w-screen mt-12">
-                <div className="w-full">
+            <main className="w-screen flex flex-col ">
+                <div className="flex w-full mt-12 justify-center items-center">
                     {posts.slice(0, 1).map((post, index: React.Key) => {
                         return (
-                            <Card key={index} className="md:w-full lg:w-3/4 flex items-start flex-col mx-auto bg-primary-foreground">
-                                <CardHeader>
-                                    <CardTitle className="text-primary font-bold text-5xl leading-3">{post.title}</CardTitle>
+                            <Card key={index} className="w-11/12 flex flex-col lg:w-3/4" >
+                                <CardHeader className="w-full flex items-start">
+                                    <CardTitle className="text-primary text-4xl">{post.title}</CardTitle>
+                                    <p className="text-black/60 text-sm md:hidden">{post.created_at}</p>
                                 </CardHeader>
-                                <CardContent className="flex w-full flex-row">
-                                    <p className="lg:text-lg mt-6 leading-8 md:text-base break-words lg:pr-10">{post.body}</p>
-                                    <img src={post.image_url} alt={post.image_alt} className="lg:w-1/2 lg:rounded-none md:w-72 md:h-72 md:rounded-full mx-auto shadow shadow-zinc-700"/>
+                                <CardContent className="w-full flex flex-col items-center gap-y-10 gap-x-5 md:flex-row-reverse">
+                                    <img src={post.image_url} alt={post.image_alt} width="300px" className="rounded-full md:1/3"/>
+                                    <p >{post.tinyText}</p>
                                 </CardContent>
                                 <CardFooter>
-                                    <p>{post.created_at}</p>
+                                    <p className="text-black/60 text-sm hidden md:block">{post.created_at}</p>
                                 </CardFooter>
                             </Card>
                         );

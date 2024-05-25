@@ -10,6 +10,7 @@ export default function Router () {
         fetch("http://localhost:3000/posts")
         .then((response) => response.json())
         .then((data: Post[]) => {
+
             setPosts(data);
         })
         .catch((error) => {
