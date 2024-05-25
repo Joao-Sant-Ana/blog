@@ -17,13 +17,13 @@ export default function Home ({ posts }: PostData) {
                 <div className="flex w-full mt-12 justify-center items-center">
                     {posts.slice(0, 1).map((post, index: React.Key) => {
                         return (
-                            <Card key={index} className="w-11/12 flex flex-col lg:w-3/4" >
+                            <Card key={index} className="w-11/12 flex flex-col lg:w-3/4 dark:shadow-primary/70 dark:shadow-lg" >
                                 <CardHeader className="w-full flex items-start">
                                     <CardTitle className="text-primary text-4xl">{post.title}</CardTitle>
                                     <p className="text-black/60 text-sm md:hidden">{post.created_at}</p>
                                 </CardHeader>
                                 <CardContent className="w-full flex flex-col items-center gap-y-10 gap-x-5 md:flex-row-reverse">
-                                    <img src={post.image_url} alt={post.image_alt} width="300px" className="rounded-full md:1/3"/>
+                                    <img src={post.image_url} alt={post.image_alt} width="300px" className="rounded-full md:1/3 shadow-lg shadow-black/70 dark:shadow-primary/20 "/>
                                     <p >{post.tinyText}</p>
                                 </CardContent>
                                 <CardFooter>

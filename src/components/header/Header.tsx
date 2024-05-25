@@ -1,3 +1,4 @@
+import { HamburgerMenuIcon  } from "@radix-ui/react-icons";
 import { Dialog, DialogTrigger, DialogContent, DialogDescription, DialogTitle, DialogHeader } from "@/components/ui/dialog";
 import { ModeToggle } from "../mode-toggle";
 import { Button } from "../ui/button";
@@ -11,7 +12,7 @@ export default function Header () {
                     <ModeToggle />
                     <div className="md:hidden">
                         <Dialog>
-                            <DialogTrigger asChild><Button>Teste</Button></DialogTrigger>
+                            <DialogTrigger asChild><Button size={"icon"}><HamburgerMenuIcon /></Button></DialogTrigger>
                             <DialogContent className="flex flex-col w-3/5 h-2/4">
                                 <DialogHeader>
                                     <DialogTitle className="mb-16">Menu</DialogTitle>
