@@ -19,24 +19,23 @@ export default function PostPage ({ posts = [], comments = []}: PostData & Comme
     return (
         <>
             <Header />
-            <main className='w-full flex flex-col h-[calc(100vh-8rem)] '>
-                <div className='w-full flex flex-col justify-start items-center '>
-                    <h1 className='text-4xl font-bold'>{post.title}</h1>
-                    <h2 className='text-md text-foreground/80'>{post.created_at}</h2>
-                </div>
-                <div className='flex flex-rol w-3/4 mx-auto gap-10'>
-                    <div className='w-full mx-auto max-w-96'>
-                        <img src={post.image} className='w-full'/>
+            <main className='w-full flex-1 flex flex-col mb-20 '>
+                <div className="flex flex-col w-11/12 mx-auto lg:w-3/4">
+                    <div className='w-full flex flex-col justify-start items-center text-center'>
+                        <h1 className='text-2xl font-bold'>{post.title}</h1>
+                        <h2 className='text-md text-foreground/80'>{post.created_at}</h2>
                     </div>
-                    <div>
-                        <p>{post.body}</p>
+                    <div className='flex flex-col w-full mx-auto gap-y-10 gap-x-5 md:flex-row md:mt-10'>
+                        <div className='w-full mx-auto max-w-80'>
+                            <img src="https://via.placeholder.com/300x300" className='w-4/5 mx-auto'/>
+                        </div>
+                        <p className='w-full'>{post.body}</p>
                     </div>
                 </div>
-                <div className='w-full flex items-center justify-center mt-24'>
-                    {comments.map((item) => {
-                        if(item.id === post.id) {
+                <div className='w-full flex flex-col gap-y-10 items-center justify-center mt-24'>
+                    {comments.filter(comment => comment.post_id == post.id).map((item, index) => {
                             return(
-                                <div className='w-3/4 flex gap-2 items-center justify-start'>
+                                <div key={index} className='w-11/12 flex gap-2 items-start justify-start md:w-3/4 md:items-center'>
                                     <Avatar>
                                         <AvatarImage src={item.avatar}/>
                                         <AvatarFallback>CN</AvatarFallback>
@@ -50,7 +49,7 @@ export default function PostPage ({ posts = [], comments = []}: PostData & Comme
                                 </div>
                             )
                         }
-                    })}
+                    )}
                 </div>
             </main>
             <Footer />

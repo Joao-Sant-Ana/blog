@@ -28,7 +28,7 @@ export default function Home ({ posts = []}: PostData) {
                                         <p className="text-black/60 text-sm md:hidden">{post.created_at}</p>
                                     </CardHeader>
                                     <CardContent className="w-full flex flex-col items-center gap-y-10 gap-x-5 md:flex-row-reverse">
-                                        <img src={post.image} width="300px" className="w-11/12 shadow-lg shadow-black/70 md:w-80 dark:shadow-primary/20 "/>
+                                        <img src="https://via.placeholder.com/300x300" width="300px" className="w-11/12 shadow-lg shadow-black/70 md:w-80 dark:shadow-primary/20 "/>
                                         <p className="sm:text-lg md:text-xl xl:text-2xl">{post.tinyText}</p>
                                     </CardContent>
                                     <CardFooter>
