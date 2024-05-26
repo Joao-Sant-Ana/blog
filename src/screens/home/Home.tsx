@@ -11,7 +11,7 @@ export default function Home ({ posts = []}: PostData) {
         const imgid = parts[parts.length - 1];
         const complete_url = `https://source.unsplash.com/${imgid}`
 
-        const lastSpace = item.body.lastIndexOf(' ', 500);
+        const lastSpace = item.body.lastIndexOf(' ', 300);
         const tinyText = item.body.substring(0, lastSpace) + "...";
 
         const titleForUrl = item.title.replace(/\s+/g, '-');
@@ -21,7 +21,7 @@ export default function Home ({ posts = []}: PostData) {
     return (
         <>
             <Header />
-            <main className="w-full flex flex-col ">
+            <main className="w-full flex flex-col">
                 <div className="flex w-full mt-12 justify-center items-center">
                     {posts.slice(0, 1).map((post, index: React.Key) => {
                         return (
@@ -32,7 +32,7 @@ export default function Home ({ posts = []}: PostData) {
                                 </CardHeader>
                                 <CardContent className="w-full flex flex-col items-center gap-y-10 gap-x-5 md:flex-row-reverse">
                                     <img src={post.image} width="300px" className="w-11/12 shadow-lg shadow-black/70 md:w-80 dark:shadow-primary/20 "/>
-                                    <p >{post.tinyText}</p>
+                                    <p className="sm:text-lg md:text-xl xl:text-2xl">{post.tinyText}</p>
                                 </CardContent>
                                 <CardFooter>
                                     <p className="text-black/60 text-sm hidden md:block">{post.created_at}</p>

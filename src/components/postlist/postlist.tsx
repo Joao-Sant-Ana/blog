@@ -18,7 +18,7 @@ export default function PostList ({ posts = []}: PostData) {
                             <CardHeader>
                                 <CardTitle className="text-2xl text-primary">{item.title}</CardTitle>
                             </CardHeader>
-                            <CardContent className="w-full flex flex-col gap-x-5 gap-y-5 items-center justify-center md:flex-row">
+                            <CardContent className="w-full flex flex-col gap-x-5 gap-y-5 items-center justify-center sm:flex-row">
                                 <div className="w-1/4 min-w-40 lg:min-w-32 xl:min-w-40">
                                     <img src={item.image} className="w-40 mx-auto shadow-lg md:w-96"/>
                                 </div>

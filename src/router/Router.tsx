@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from '@/screens';
 import { useEffect, useState } from "react";
 import { Post } from '@/types';
+import Login from "@/screens/login/Login";
+import Register from "@/screens/register/Register"
 
 export default function Router () {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -22,6 +24,8 @@ export default function Router () {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home posts={posts}/>}/>
+                <Route path="/login" element={<Login />} />
+                <Route path="/registrar" element={<Register />} />
             </Routes>
         </BrowserRouter>
     );
