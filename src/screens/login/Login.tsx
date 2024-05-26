@@ -11,7 +11,7 @@ export default function Login () {
     return (
         <>
             <Header />
-            <div className="w-full h-screen flex items-center justify-center">
+            <div className="w-full h-[calc(100vh-8rem)] flex items-center justify-center">
                 <Card className="w-full sm:w-4/5 md:w-1/4">
                     <CardHeader>
                         <CardTitle>Entrar</CardTitle>
