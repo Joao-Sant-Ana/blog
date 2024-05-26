@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import PostList from "@/components/postlist/postlist";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -42,6 +43,7 @@ export default function Home ({ posts = []}: PostData) {
                 </div>
                 <PostList posts={posts.slice(1, -1)}/>
             </main>
+            <Footer />
         </>
     );
 }
