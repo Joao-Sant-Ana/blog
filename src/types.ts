@@ -7,6 +7,7 @@ export interface Post {
     created_at: string;
     image_url: string;
     image_alt: string;
+    image: string;
 }
 
 //Seleciona todos os posts dentro do json

@@ -1,19 +1,26 @@
 import Header from "@/components/header/Header";
+import PostList from "@/components/postlist/postlist";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { PostData } from '@/types';
 
-export default function Home ({ posts }: PostData) {
+export default function Home ({ posts = []}: PostData) {
     posts = posts.map((item) => {
+
+        const parts = item.image_url.split('/');
+        const imgid = parts[parts.length - 1];
+        const complete_url = `https://source.unsplash.com/${imgid}`
+
         const lastSpace = item.body.lastIndexOf(' ', 500);
         const tinyText = item.body.substring(0, lastSpace) + "...";
 
-        return {...item, tinyText: tinyText}
+        const titleForUrl = item.title.replace(/\s+/g, '-');
+        return { ...item, image: complete_url, tinyText: tinyText, titleurl: titleForUrl}
     });
 
     return (
         <>
             <Header />
-            <main className="w-screen flex flex-col ">
+            <main className="w-full flex flex-col ">
                 <div className="flex w-full mt-12 justify-center items-center">
                     {posts.slice(0, 1).map((post, index: React.Key) => {
                         return (
@@ -23,7 +30,7 @@ export default function Home ({ posts }: PostData) {
                                     <p className="text-black/60 text-sm md:hidden">{post.created_at}</p>
                                 </CardHeader>
                                 <CardContent className="w-full flex flex-col items-center gap-y-10 gap-x-5 md:flex-row-reverse">
-                                    <img src={post.image_url} alt={post.image_alt} width="300px" className="rounded-full md:1/3 shadow-lg shadow-black/70 dark:shadow-primary/20 "/>
+                                    <img src={post.image} width="300px" className="w-11/12 shadow-lg shadow-black/70 md:w-80 dark:shadow-primary/20 "/>
                                     <p >{post.tinyText}</p>
                                 </CardContent>
                                 <CardFooter>
@@ -33,6 +40,7 @@ export default function Home ({ posts }: PostData) {
                         );
                     })}
                 </div>
+                <PostList posts={posts.slice(1, -1)}/>
             </main>
         </>
     );
